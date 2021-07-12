@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Working with source-git on Packit</title>
+    <link>https://packit.dev/docs/source-git/work-with-source-git/</link>
+    <description>Recent content in Working with source-git on Packit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Jun 2020 23:59:59 +0100</lastBuildDate><atom:link href="https://packit.dev/docs/source-git/work-with-source-git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Update a spec file</title>
+      <link>https://packit.dev/docs/source-git/work-with-source-git/update-spec/</link>
+      <pubDate>Mon, 25 Jan 2021 23:59:59 +0100</pubDate>
+      
+      <guid>https://packit.dev/docs/source-git/work-with-source-git/update-spec/</guid>
+      <description>Update a spec file #  Changing a spec file is very straightforward:
+ Edit the file. Commit the change locally.   Please make sure that your change complies with Fedora Packaging Guidelines if you intend to bring it to the Fedora ecosystem.
+ Once that&amp;rsquo;s done, it&amp;rsquo;s a great practice to create a SRPM and build the spec file change locally.
+If you are planning to pull an upstream fix, you can read more here.</description>
+    </item>
+    
+    <item>
+      <title>Pull fixes from the upstream</title>
+      <link>https://packit.dev/docs/source-git/work-with-source-git/pull-upstream-fixes/</link>
+      <pubDate>Tue, 26 Jan 2021 23:59:59 +0100</pubDate>
+      
+      <guid>https://packit.dev/docs/source-git/work-with-source-git/pull-upstream-fixes/</guid>
+      <description>Pull fixes from the upstream #  One of the common tasks of being a downstream maintainer is to pull fixes from the upstream codebase. This usually happens when a problem is discovered downstream which is already resolved in the upstream code. There are two scenarios how to obtain the upstream code:
+ The fix is not released yet by the upstream - this implies pulling the fix from the main development upstream branch.</description>
+    </item>
+    
+    <item>
+      <title>Build current checkout locally</title>
+      <link>https://packit.dev/docs/source-git/work-with-source-git/build-locally/</link>
+      <pubDate>Wed, 27 Jan 2021 23:59:59 +0100</pubDate>
+      
+      <guid>https://packit.dev/docs/source-git/work-with-source-git/build-locally/</guid>
+      <description>Build your current checkout locally #  Once you are comfortable with your local changes, you can build them before pushing them out. Just make sure that all code changes are committed, otherwise Packit won&amp;rsquo;t be able to create patch files out of them.
+We are going to use Packit to achieve such a thing, so please make sure you have it installed locally.
+The command to create source RPMs is called srpm and that&amp;rsquo;s how you can create one:</description>
+    </item>
+    
+    <item>
+      <title>Propose your source-git content to dist-git</title>
+      <link>https://packit.dev/docs/source-git/work-with-source-git/propose-to-dist-git/</link>
+      <pubDate>Wed, 27 Jan 2021 23:59:59 +0100</pubDate>
+      
+      <guid>https://packit.dev/docs/source-git/work-with-source-git/propose-to-dist-git/</guid>
+      <description>Propose your source-git content to dist-git #  Once your changes are merged into a source-git repo, the final step is to propose those changes to dist-git and get a production build. Alternatively, you can open a dist-git merge request just to trigger the dist-git checks or see how the changes would look in dist-git.
+If you want to change something in the spec file, this is the right time to bump release, add a %changelog entry or adjust macros.</description>
+    </item>
+    
+  </channel>
+</rss>

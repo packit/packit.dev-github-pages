@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>User Documentation on Packit</title>
+    <link>https://packit.dev/docs/</link>
+    <description>Recent content in User Documentation on Packit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://packit.dev/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Packit</title>
+      <link>https://packit.dev/docs/about/</link>
+      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/about/</guid>
+      <description>About Packit #  The key principles of packit #    Packit aims to make things easy and right. But if the default behavior is not the right for you, there is still a way around, but may not be that simple. For example you can use actions to replace packit&amp;rsquo;s default behavior with a script of yours.
+  Reuse existing tools and services where it makes sense: don&amp;rsquo;t reinvent the wheel.</description>
+    </item>
+    
+    <item>
+      <title>Onboarding Guide</title>
+      <link>https://packit.dev/docs/guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/guide/</guid>
+      <description>Onboarding Guide #  Agenda #  We have split the on-boarding process into multiple stages:
+ Have packit tooling installed locally. RPM builds pass on your laptop. You are approved to use Packit Service. The project has successful builds inside the service. Packit service handles Fedora Rawhide updates for you.  We welcome all kinds of suggestions to this guide, feel free to open a new issue here.
+Have packit tooling installed locally #  In order to start using packit, we suggest you install the tooling locally.</description>
+    </item>
+    
+    <item>
+      <title>Packit Service</title>
+      <link>https://packit.dev/docs/packit-service/</link>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/packit-service/</guid>
+      <description>Packit Service #  Helps you continuously ensure that your project works in Fedora Linux or CentOS Stream.
+Easy to use #  Using Packit Service is very straightforward: add one config file to your repository together with the RPM spec file.
+On Github you also need to install (see below) our Github App, for Gitlab see FAQ.
+Packit Service validates your pull requests by building your software in Fedora OS.</description>
+    </item>
+    
+    <item>
+      <title>Testing Farm</title>
+      <link>https://packit.dev/docs/testing-farm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/testing-farm/</guid>
+      <description>Testing Farm #  Testing Farm is Packit&amp;rsquo;s testing system. It is a containerized service for running tests. Test execution is configured via Flexible Metadata Format, according to the Metadata Specification.
+Enable Testing #  In order to enable test execution simply include tests jobs in the .packit.yaml configuration:
+jobs: - job: tests trigger: pull_request metadata: targets: - fedora-all Required metadata:
+ targets - You can use fedora-development, fedora-stable, fedora-all or release specific targets such as fedora-34-x86_64.</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>https://packit.dev/docs/faq/</link>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/faq/</guid>
+      <description>FAQ #  Can I use the packit service as soon as I install it into my repository? #  Thanks for your interest in Packit Service! In order to start using the service, your repository or namespace needs to be allowed, which is an action to be done by us. Once we put you on the allowlist, we&amp;rsquo;ll get in touch with you. We are now on-boarding Fedora contributors (with a Fedora Account System account).</description>
+    </item>
+    
+    <item>
+      <title>Configuration</title>
+      <link>https://packit.dev/docs/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/configuration/</guid>
+      <description>Configuration #  Packit uses a configuration file in the upstream repository. The config file is written in YAML language.
+You should place the file in the root of your upstream repo. Packit accepts these names:
+ .packit.yaml .packit.yml .packit.json packit.yaml packit.yml packit.json  Both Packit Service and packit tool use this configuration file.
+Top level keys #  specfile_path #  (string) Relative path to a spec file within the upstream repository.</description>
+    </item>
+    
+    <item>
+      <title>Actions</title>
+      <link>https://packit.dev/docs/actions/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/actions/</guid>
+      <description>Actions #  You can probably find yourself in a situation where some part of the packit workflow needs to be tweaked for your package.
+Packit supports actions, a way to change the default implementation for a command of your choice. Packit is able to execute multiple commands. Each action accepts a list of commands. By default, the commands are executed directly and not in a shell - if you need a shell, just wrap your command like this: bash -c &amp;quot;my fancy $command | grep success&amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title>Generated code in upstream archives</title>
+      <link>https://packit.dev/docs/archive-not-matching-git/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/archive-not-matching-git/</guid>
+      <description>When the release archive does not match the upstream git tag checkout #  This document covers a scenario when an upstream project has a script to create release archives and some of the code in the archive is generated. This means that when a downstream distribution has patches of the generated code those patches can&amp;rsquo;t be applied in the upstream repo.
+The solution #  The provided solution will be performed in a source-git repository.</description>
+    </item>
+    
+  </channel>
+</rss>

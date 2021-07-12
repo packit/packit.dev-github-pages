@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Source-git on Packit</title>
+    <link>https://packit.dev/docs/source-git/</link>
+    <description>Recent content in Source-git on Packit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Jan 2021 23:59:59 +0100</lastBuildDate><atom:link href="https://packit.dev/docs/source-git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create source-git repo</title>
+      <link>https://packit.dev/docs/source-git/how-to-source-git/</link>
+      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/source-git/how-to-source-git/</guid>
+      <description>How to create a source-git repository? #  This guide walks through the steps to create a source-git repository from an upstream project.
+Please bear in mind, that the structure of source-git repositories is still being discussed and in development. Due to this, this guide is subject to change. Consider joining the Fedora Source-git SIG if you are interested and would like to participate in the discussions.
+The process to construct a source-git repository and a branch to track downstream (distribution) work, which then can be synced to dist-git has the following steps:</description>
+    </item>
+    
+    <item>
+      <title>Source-git design</title>
+      <link>https://packit.dev/docs/source-git/design/</link>
+      <pubDate>Mon, 31 Dec 2018 23:59:59 +0100</pubDate>
+      
+      <guid>https://packit.dev/docs/source-git/design/</guid>
+      <description>Source-git design #  Source git is the place where the manual work is done #  This document serves as a detailed description of source-git. Please bear in mind that some things are a subject to change — the overall design is pretty solid, but details may be tinkered over time.
+Authors: Stef Walter, Tomas Tomecek
+TL;DR #  Content of source-git repository is equivalent to dist-git, but uses upstream format: source files instead of tarballs, git commits instead of patches.</description>
+    </item>
+    
+  </channel>
+</rss>

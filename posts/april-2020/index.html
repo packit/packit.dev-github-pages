@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Week 14 (March 30th - April 3rd) #  packit #   Fix web URLs for Copr builds owned by groups (#778). Create downstream spec if it&rsquo;s not there (propose-update) - this used to happen when using packit on a newly created package in Fedora which did not have spec fille added yet. (#779) Packit no longer inspects archive extension set in Source and creates .tar.gz by default - this should be more flexible and prevent issues for &ldquo;non-standard&rdquo; archive names.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="April 2020" />
+<meta property="og:description" content="Week 14 (March 30th - April 3rd) #  packit #   Fix web URLs for Copr builds owned by groups (#778). Create downstream spec if it&rsquo;s not there (propose-update) - this used to happen when using packit on a newly created package in Fedora which did not have spec fille added yet. (#779) Packit no longer inspects archive extension set in Source and creates .tar.gz by default - this should be more flexible and prevent issues for &ldquo;non-standard&rdquo; archive names." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://packit.dev/posts/april-2020/" />
+<meta property="article:published_time" content="2020-04-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-03T00:00:00+00:00" />
+<title>April 2020 | Packit</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.81007768dfa1141e1fa60a2832f2c035182f8b9a5e48824ebdadd71412b4b994.css" integrity="sha256-gQB3aN&#43;hFB4fpgooMvLANRgvi5peSIJOva3XFBK0uZQ=">
+<script defer src="/en.search.min.6a8f6066795edc78153a1d6d5b9aa19fa5a8b9e7b2367f8c2a230fbcb76fe60d.js" integrity="sha256-ao9gZnle3HgVOh1tW5qhn6WoueeyNn&#43;MKiMPvLdv5g0="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-143669536-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/packit_logo.png" alt="Logo" /><span>Packit</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://dashboard.packit.dev" target="_blank" rel="noopener">
+        Dashboard
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f67fdc9a362fd86f1cfd4450ed56551" class="toggle"  />
+    <label for="section-2f67fdc9a362fd86f1cfd4450ed56551" class="flex justify-between">
+      <a href="https://packit.dev/docs/" class="">User Documentation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/about/" class="">About Packit</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/guide/" class="">Onboarding Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/packit-service/" class="">Packit Service</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/testing-farm/" class="">Testing Farm</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/faq/" class="">FAQ</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-10445724bd3552c84cfb0cd453c3c966" class="toggle"  />
+    <label for="section-10445724bd3552c84cfb0cd453c3c966" class="flex justify-between">
+      <a href="https://packit.dev/docs/source-git/" class="">Source-git</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/how-to-source-git/" class="">Create source-git repo</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d03e38b2eb78ad309a49a457d3e5e3cb" class="toggle"  />
+    <label for="section-d03e38b2eb78ad309a49a457d3e5e3cb" class="flex justify-between">
+      <a href="https://packit.dev/docs/source-git/work-with-source-git/" class="">Working with source-git</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/work-with-source-git/update-spec/" class="">Update a spec file</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/work-with-source-git/pull-upstream-fixes/" class="">Pull fixes from the upstream</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/work-with-source-git/build-locally/" class="">Build current checkout locally</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/work-with-source-git/propose-to-dist-git/" class="">Propose your source-git content to dist-git</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/design/" class="">Source-git design</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/configuration/" class="">Configuration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-17ea62a3fa80e270b55a640146bc89e1" class="toggle"  />
+    <label for="section-17ea62a3fa80e270b55a640146bc89e1" class="flex justify-between">
+      <a href="https://packit.dev/docs/cli/" class="">Packit CLI</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/build/" class="">build</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/init/" class="">init</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/create-bodhi-update/" class="">create-bodhi-update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/propose-downstream/" class="">propose-downstream</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/srpm/" class="">srpm</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/sync-from-downstream/" class="">sync-from-downstream</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/status/" class="">status</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/push-updates/" class="">push-updates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/local-build/" class="">local-build</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/validate-config/" class="">validate-config</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/copr-build/" class="">copr-build</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a024048a4317a88a547d3a91b2359da1" class="toggle"  />
+    <label for="section-a024048a4317a88a547d3a91b2359da1" class="flex justify-between">
+      <a  class="">source-git</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/source-git/init/" class="">init</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/source-git/update-dist-git/" class="">update-dist-git</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/actions/" class="">Actions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/archive-not-matching-git/" class="">Generated code in upstream archives</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a07783f405300745807d39eacf150420" class="toggle" checked />
+    <label for="section-a07783f405300745807d39eacf150420" class="flex justify-between">
+      <a href="https://packit.dev/posts/" class="">Blog Posts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/july-2021/" class="">July 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/june-2021/" class="">June 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/may-2021/" class="">May 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/april-2021/" class="">April 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/march-2021/" class="">March 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/february-2021/" class="">February 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/january-2021/" class="">January 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/december-2020/" class="">December 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/november-2020/" class="">November 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/october-2020/" class="">October 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/fedora-eln/" class="">Working on the next major RHEL release, in your upstream repo</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/september-2020/" class="">September 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/august-2020/" class="">August 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/july-2020/" class="">July 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/june-2020/" class="">June 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/may-2020/" class="">May 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/april-2020/" class=" active">April 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/march-2020/" class="">March 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/february-2020/" class="">February 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/january-20/" class="">January 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/2019/" class="">2019</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-03ded75136420a051aef84f84237f006" class="toggle"  />
+    <label for="section-03ded75136420a051aef84f84237f006" class="flex justify-between">
+      <a href="https://packit.dev/development-docs/" class="">Development Documentation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/development-docs/creating-stream-9-repos/" class="">Creating CentOS Stream 9 source-git repositories</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/development-docs/patch-metadata/" class="">Source-git patch metadata</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://status.packit.dev" target="_blank" rel="noopener">
+        Status page
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>April 2020</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#week-14-march-30th---april-3rd">Week 14 (March 30th - April 3rd)</a>
+      <ul>
+        <li><a href="#packit">packit</a></li>
+        <li><a href="#packit-service">packit-service</a></li>
+      </ul>
+    </li>
+    <li><a href="#week-15-march-6th---april-9th">Week 15 (March 6th - April 9th)</a>
+      <ul>
+        <li><a href="#packit-1">packit</a></li>
+        <li><a href="#packit-service-1">packit-service</a></li>
+      </ul>
+    </li>
+    <li><a href="#week-16-april-14th---april-17th">Week 16 (April 14th - April 17th)</a>
+      <ul>
+        <li><a href="#packit--packit-service">packit &amp; packit-service</a></li>
+      </ul>
+    </li>
+    <li><a href="#week-17-april-20th---april-24th">Week 17 (April 20th - April 24th)</a>
+      <ul>
+        <li><a href="#packit-service-2">packit-service</a></li>
+      </ul>
+    </li>
+    <li><a href="#week-18-april-27th---april-30th">Week 18 (April 27th - April 30th)</a>
+      <ul>
+        <li><a href="#packit-service-3">packit-service</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/april-2020/">April 2020</a>
+  </h1>
+  
+  <h5>April 3, 2020</h5>
+
+
+
+  
+
+  
+
+
+
+<h2 id="week-14-march-30th---april-3rd">
+  Week 14 (March 30th - April 3rd)
+  <a class="anchor" href="#week-14-march-30th---april-3rd">#</a>
+</h2>
+<h3 id="packit">
+  packit
+  <a class="anchor" href="#packit">#</a>
+</h3>
+<ul>
+<li>Fix web URLs for Copr builds owned by groups <a href="https://github.com/packit-service/packit/pull/778">(#778)</a>.</li>
+<li>Create downstream spec if it&rsquo;s not there (propose-update) - this used to happen when using packit on a newly created package in Fedora which did not have spec fille added yet. <a href="https://github.com/packit-service/packit/pull/779">(#779)</a></li>
+<li>Packit no longer inspects archive extension set in <code>Source</code> and creates <code>.tar.gz</code> by default - this should be more flexible and prevent issues for &ldquo;non-standard&rdquo; archive names. <a href="https://github.com/packit-service/packit/pull/781">(#781)</a></li>
+</ul>
+<h3 id="packit-service">
+  packit-service
+  <a class="anchor" href="#packit-service">#</a>
+</h3>
+<ul>
+<li>Several fixes and improvements after switching data store from Redis to PostgreSQL.</li>
+<li>Use the configured COPR project when triggering Testing Farm (tests no longer fail for projects which are built in their own COPR namespace) <a href="https://github.com/packit-service/packit-service/pull/524">(#524)</a>.</li>
+</ul>
+<h2 id="week-15-march-6th---april-9th">
+  Week 15 (March 6th - April 9th)
+  <a class="anchor" href="#week-15-march-6th---april-9th">#</a>
+</h2>
+<h3 id="packit-1">
+  packit
+  <a class="anchor" href="#packit-1">#</a>
+</h3>
+<ul>
+<li><a href="https://github.com/TomasTomecek">Tomáš</a> finished teaching <code>packit srpm</code> to <a href="https://github.com/packit-service/packit/pull/766">linearise extremely complex Git
+histories</a>, in order to get patches that can be applied when building the
+SRPM.</li>
+<li><a href="https://github.com/jpopelka">Jirka</a> made the schema validation code <a href="https://github.com/packit-service/packit/pull/775">Marshmallow3 compatible</a>. This
+enables building <code>packit</code> in Fedora 32 and Rawhide.</li>
+</ul>
+<h3 id="packit-service-1">
+  packit-service
+  <a class="anchor" href="#packit-service-1">#</a>
+</h3>
+<ul>
+<li><a href="https://github.com/lachmanfrantisek">Franta</a> fixed an issue with <a href="https://github.com/packit-service/packit-service/issues/536">parsing release events</a>.</li>
+<li><a href="https://github.com/jpopelka">Jirka</a> made code <a href="https://github.com/packit-service/packit-service/pull/538">Marshmallow3</a> compatible in this project, too.</li>
+</ul>
+<h2 id="week-16-april-14th---april-17th">
+  Week 16 (April 14th - April 17th)
+  <a class="anchor" href="#week-16-april-14th---april-17th">#</a>
+</h2>
+<h3 id="packit--packit-service">
+  packit &amp; packit-service
+  <a class="anchor" href="#packit--packit-service">#</a>
+</h3>
+<ul>
+<li>Job metadata field <code>dist-git-branch</code> is now marked as deprecated, to be
+replaced by <code>dist_git_branches</code> to match the naming of other metadata fields
+and to accept multiple branch names where Packit should work. (<a href="https://github.com/packit-service/packit/pull/797">#797</a>,
+<a href="https://github.com/packit-service/packit/pull/788">#788</a> and <a href="https://github.com/packit-service/packit-service/pull/564">#564</a>).</li>
+<li>A great deal of refactoring, CI work and general code improvements which
+will make Packit and Packit Service run smoother and development easier.</li>
+</ul>
+<h2 id="week-17-april-20th---april-24th">
+  Week 17 (April 20th - April 24th)
+  <a class="anchor" href="#week-17-april-20th---april-24th">#</a>
+</h2>
+<h3 id="packit-service-2">
+  packit-service
+  <a class="anchor" href="#packit-service-2">#</a>
+</h3>
+<p>In this week we mostly focused on CentOS Stream and
+some under the hood improvements,
+none of which are available for Github projects.</p>
+<ul>
+<li><a href="https://github.com/sakalosj">Jano</a> did a lot of work on <a href="https://github.com/packit-service/packit-service/pull/515">initial CentOS Stream integration</a>.</li>
+<li><a href="https://github.com/csomh">Hunor</a> added a Pagure build status reporting.</li>
+<li><a href="https://github.com/IceWreck">Anchit</a> added first API tests and improved build statuses given by the API.</li>
+<li><a href="https://github.com/lbarcziova">Laura</a> and <a href="https://github.com/rishavanand">Rishav</a> improved how data about Copr builds are stored in our db.</li>
+</ul>
+<h2 id="week-18-april-27th---april-30th">
+  Week 18 (April 27th - April 30th)
+  <a class="anchor" href="#week-18-april-27th---april-30th">#</a>
+</h2>
+<h3 id="packit-service-3">
+  packit-service
+  <a class="anchor" href="#packit-service-3">#</a>
+</h3>
+<ul>
+<li><a href="https://github.com/lachmanfrantisek">Franta</a> did a great deal of service &amp; worker refactoring related to CentOS (<a href="https://github.com/packit-service/packit-service/pull/586">#586</a>)
+and to forks usage in Github. (<a href="https://github.com/packit-service/packit-service/pull/589">#589</a>)</li>
+<li><a href="https://github.com/csomh">Hunor</a> fixed confusing Github status messages while building in Copr. (<a href="https://github.com/packit-service/packit-service/pull/588">#588</a>)</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#week-14-march-30th---april-3rd">Week 14 (March 30th - April 3rd)</a>
+      <ul>
+        <li><a href="#packit">packit</a></li>
+        <li><a href="#packit-service">packit-service</a></li>
+      </ul>
+    </li>
+    <li><a href="#week-15-march-6th---april-9th">Week 15 (March 6th - April 9th)</a>
+      <ul>
+        <li><a href="#packit-1">packit</a></li>
+        <li><a href="#packit-service-1">packit-service</a></li>
+      </ul>
+    </li>
+    <li><a href="#week-16-april-14th---april-17th">Week 16 (April 14th - April 17th)</a>
+      <ul>
+        <li><a href="#packit--packit-service">packit &amp; packit-service</a></li>
+      </ul>
+    </li>
+    <li><a href="#week-17-april-20th---april-24th">Week 17 (April 20th - April 24th)</a>
+      <ul>
+        <li><a href="#packit-service-2">packit-service</a></li>
+      </ul>
+    </li>
+    <li><a href="#week-18-april-27th---april-30th">Week 18 (April 27th - April 30th)</a>
+      <ul>
+        <li><a href="#packit-service-3">packit-service</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

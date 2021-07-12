@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Testing Farm #  Testing Farm is Packit&rsquo;s testing system. It is a containerized service for running tests. Test execution is configured via Flexible Metadata Format, according to the Metadata Specification.
+Enable Testing #  In order to enable test execution simply include tests jobs in the .packit.yaml configuration:
+jobs: - job: tests trigger: pull_request metadata: targets: - fedora-all Required metadata:
+ targets - You can use fedora-development, fedora-stable, fedora-all or release specific targets such as fedora-34-x86_64.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Testing Farm" />
+<meta property="og:description" content="Testing Farm #  Testing Farm is Packit&rsquo;s testing system. It is a containerized service for running tests. Test execution is configured via Flexible Metadata Format, according to the Metadata Specification.
+Enable Testing #  In order to enable test execution simply include tests jobs in the .packit.yaml configuration:
+jobs: - job: tests trigger: pull_request metadata: targets: - fedora-all Required metadata:
+ targets - You can use fedora-development, fedora-stable, fedora-all or release specific targets such as fedora-34-x86_64." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://packit.dev/docs/testing-farm/" />
+
+<title>Testing Farm | Packit</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.81007768dfa1141e1fa60a2832f2c035182f8b9a5e48824ebdadd71412b4b994.css" integrity="sha256-gQB3aN&#43;hFB4fpgooMvLANRgvi5peSIJOva3XFBK0uZQ=">
+<script defer src="/en.search.min.6a8f6066795edc78153a1d6d5b9aa19fa5a8b9e7b2367f8c2a230fbcb76fe60d.js" integrity="sha256-ao9gZnle3HgVOh1tW5qhn6WoueeyNn&#43;MKiMPvLdv5g0="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-143669536-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/packit_logo.png" alt="Logo" /><span>Packit</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://dashboard.packit.dev" target="_blank" rel="noopener">
+        Dashboard
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f67fdc9a362fd86f1cfd4450ed56551" class="toggle" checked />
+    <label for="section-2f67fdc9a362fd86f1cfd4450ed56551" class="flex justify-between">
+      <a href="https://packit.dev/docs/" class="">User Documentation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/about/" class="">About Packit</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/guide/" class="">Onboarding Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/packit-service/" class="">Packit Service</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/testing-farm/" class=" active">Testing Farm</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/faq/" class="">FAQ</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-10445724bd3552c84cfb0cd453c3c966" class="toggle"  />
+    <label for="section-10445724bd3552c84cfb0cd453c3c966" class="flex justify-between">
+      <a href="https://packit.dev/docs/source-git/" class="">Source-git</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/how-to-source-git/" class="">Create source-git repo</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d03e38b2eb78ad309a49a457d3e5e3cb" class="toggle"  />
+    <label for="section-d03e38b2eb78ad309a49a457d3e5e3cb" class="flex justify-between">
+      <a href="https://packit.dev/docs/source-git/work-with-source-git/" class="">Working with source-git</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/work-with-source-git/update-spec/" class="">Update a spec file</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/work-with-source-git/pull-upstream-fixes/" class="">Pull fixes from the upstream</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/work-with-source-git/build-locally/" class="">Build current checkout locally</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/work-with-source-git/propose-to-dist-git/" class="">Propose your source-git content to dist-git</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/source-git/design/" class="">Source-git design</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/configuration/" class="">Configuration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-17ea62a3fa80e270b55a640146bc89e1" class="toggle"  />
+    <label for="section-17ea62a3fa80e270b55a640146bc89e1" class="flex justify-between">
+      <a href="https://packit.dev/docs/cli/" class="">Packit CLI</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/build/" class="">build</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/init/" class="">init</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/create-bodhi-update/" class="">create-bodhi-update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/propose-downstream/" class="">propose-downstream</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/srpm/" class="">srpm</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/sync-from-downstream/" class="">sync-from-downstream</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/status/" class="">status</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/push-updates/" class="">push-updates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/local-build/" class="">local-build</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/validate-config/" class="">validate-config</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/copr-build/" class="">copr-build</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a024048a4317a88a547d3a91b2359da1" class="toggle"  />
+    <label for="section-a024048a4317a88a547d3a91b2359da1" class="flex justify-between">
+      <a  class="">source-git</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/source-git/init/" class="">init</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/cli/source-git/update-dist-git/" class="">update-dist-git</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/actions/" class="">Actions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/docs/archive-not-matching-git/" class="">Generated code in upstream archives</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a07783f405300745807d39eacf150420" class="toggle"  />
+    <label for="section-a07783f405300745807d39eacf150420" class="flex justify-between">
+      <a href="https://packit.dev/posts/" class="">Blog Posts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/july-2021/" class="">July 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/june-2021/" class="">June 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/may-2021/" class="">May 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/april-2021/" class="">April 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/march-2021/" class="">March 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/february-2021/" class="">February 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/january-2021/" class="">January 2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/december-2020/" class="">December 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/november-2020/" class="">November 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/october-2020/" class="">October 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/fedora-eln/" class="">Working on the next major RHEL release, in your upstream repo</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/september-2020/" class="">September 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/august-2020/" class="">August 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/july-2020/" class="">July 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/june-2020/" class="">June 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/may-2020/" class="">May 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/april-2020/" class="">April 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/march-2020/" class="">March 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/february-2020/" class="">February 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/january-20/" class="">January 2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/posts/2019/" class="">2019</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-03ded75136420a051aef84f84237f006" class="toggle"  />
+    <label for="section-03ded75136420a051aef84f84237f006" class="flex justify-between">
+      <a href="https://packit.dev/development-docs/" class="">Development Documentation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/development-docs/creating-stream-9-repos/" class="">Creating CentOS Stream 9 source-git repositories</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://packit.dev/development-docs/patch-metadata/" class="">Source-git patch metadata</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://status.packit.dev" target="_blank" rel="noopener">
+        Status page
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Testing Farm</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#enable-testing">Enable Testing</a></li>
+    <li><a href="#restart-testing">Restart Testing</a></li>
+    <li><a href="#creating-tests">Creating Tests</a></li>
+    <li><a href="#more-examples">More Examples</a>
+      <ul>
+        <li><a href="#using-filters">Using Filters</a></li>
+        <li><a href="#prepare-step">Prepare Step</a></li>
+        <li><a href="#apache-test">Apache Test</a></li>
+        <li><a href="#systemd-tests">Systemd Tests</a></li>
+        <li><a href="#fmf-tests">FMF Tests</a></li>
+        <li><a href="#running-linters">Running linters</a></li>
+      </ul>
+    </li>
+    <li><a href="#testing-farm-api">Testing Farm API</a></li>
+    <li><a href="#issues--rfes">Issues &amp; RFEs</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="testing-farm">
+  Testing Farm
+  <a class="anchor" href="#testing-farm">#</a>
+</h1>
+<p>Testing Farm is Packit&rsquo;s testing system.
+It is a containerized service for running tests.
+Test execution is configured via <a href="https://fmf.readthedocs.io/">Flexible Metadata Format</a>,
+according to the <a href="https://tmt.readthedocs.io/en/latest/spec.html">Metadata Specification</a>.</p>
+<h2 id="enable-testing">
+  Enable Testing
+  <a class="anchor" href="#enable-testing">#</a>
+</h2>
+<p>In order to enable test execution simply include <code>tests</code> jobs in the <code>.packit.yaml</code> configuration:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#f92672">jobs</span>:
+    - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">tests</span>
+      <span style="color:#f92672">trigger</span>: <span style="color:#ae81ff">pull_request</span>
+      <span style="color:#f92672">metadata</span>:
+        <span style="color:#f92672">targets</span>:
+        - <span style="color:#ae81ff">fedora-all</span>
+</code></pre></div><p>Required metadata:</p>
+<ul>
+<li><strong>targets</strong> - You can use <code>fedora-development</code>, <code>fedora-stable</code>, <code>fedora-all</code>
+or release specific targets such as <code>fedora-34-x86_64</code>.
+Also <code>centos-7</code>, <code>centos-8</code> and <code>centos-stream-8</code>. The targets are mapped to
+Testing Farm&rsquo;s <a href="https://api.dev.testing-farm.io/v0.1/composes">composes</a>
+when submitting the tests.</li>
+</ul>
+<p>Optional metadata:</p>
+<ul>
+<li><strong>fmf_url</strong> - Git repository containing the metadata (FMF) tree.
+Use any format acceptable by the git clone command.</li>
+<li><strong>fmf_ref</strong> - Branch, tag or commit specifying the desired git revision.
+Defaults to &ldquo;master&rdquo; when <strong>fmf_url</strong> is specified and <strong>fmf_ref</strong> is not.</li>
+</ul>
+<h2 id="restart-testing">
+  Restart Testing
+  <a class="anchor" href="#restart-testing">#</a>
+</h2>
+<p>The testing will automatically start after an update to the pull request
+and successful Copr build.
+To trigger retesting manually (can come handy in case of infrastructure
+issues for example), you can use the following comment in the pull request:</p>
+<pre><code>/packit test
+</code></pre>
+<h2 id="creating-tests">
+  Creating Tests
+  <a class="anchor" href="#creating-tests">#</a>
+</h2>
+<p>The easiest way to get started is to use the <a href="https://tmt.readthedocs.io/">tmt</a> tool
+which will help you with the setup.
+Please follow <a href="https://docs.fedoraproject.org/en-US/ci/tmt">Fedora tmt page</a>.</p>
+<h2 id="more-examples">
+  More Examples
+  <a class="anchor" href="#more-examples">#</a>
+</h2>
+<p>Get inspiration for a quick start from a couple of real-life examples!</p>
+<h3 id="using-filters">
+  Using Filters
+  <a class="anchor" href="#using-filters">#</a>
+</h3>
+<p>Use a custom <code>filter</code> in the discover step in order to choose relevant tests only:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#f92672">discover</span>:
+        <span style="color:#f92672">how</span>: <span style="color:#ae81ff">fmf</span>
+        <span style="color:#f92672">filter</span>: <span style="color:#e6db74">&#34;tier: 1&#34;</span>
+        <span style="color:#f92672">repository</span>: <span style="color:#ae81ff">https://src.fedoraproject.org/tests/selinux</span>
+</code></pre></div><h3 id="prepare-step">
+  Prepare Step
+  <a class="anchor" href="#prepare-step">#</a>
+</h3>
+<p>The <code>prepare</code> step can be used to define how test environment should be prepared before testing.
+Provide one or more paths to ansible playbooks:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#f92672">prepare</span>:
+        <span style="color:#f92672">how</span>: <span style="color:#ae81ff">ansible</span>
+        <span style="color:#f92672">playbooks</span>:
+            - <span style="color:#ae81ff">setup/packages.yml</span>
+</code></pre></div><h3 id="apache-test">
+  Apache Test
+  <a class="anchor" href="#apache-test">#</a>
+</h3>
+<p>Here is an example of a simple integration test for the web server <code>httpd</code> and <code>curl</code> utility:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#f92672">/apache/smoke</span>:
+        <span style="color:#f92672">execute</span>:
+            <span style="color:#f92672">script</span>:
+            - <span style="color:#ae81ff">dnf -y install httpd curl</span>
+            - <span style="color:#ae81ff">systemctl start httpd</span>
+            - <span style="color:#ae81ff">echo foo &gt; /var/www/html/index.html</span>
+            - <span style="color:#ae81ff">curl http://localhost/ | grep foo</span>
+</code></pre></div><p>Plan <code>/apache/smoke</code> defines only the <code>execute</code> step.
+Individual shell commands are provided as a list.
+Testing will fail if any of the commands returns a non-zero exit status.</p>
+<h3 id="systemd-tests">
+  Systemd Tests
+  <a class="anchor" href="#systemd-tests">#</a>
+</h3>
+<p>Below you can find little bit more interesting example of a <code>systemd</code> test configuration:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#f92672">/systemd/smoke</span>:
+        <span style="color:#f92672">summary</span>:
+            <span style="color:#ae81ff">Basic set of quick smoke tests for systemd.</span>
+        <span style="color:#f92672">discover</span>:
+            <span style="color:#f92672">how</span>: <span style="color:#ae81ff">fmf</span>
+            <span style="color:#f92672">filter</span>: <span style="color:#e6db74">&#34;tier: 1 &amp; distro: rhel-8&#34;</span>
+            <span style="color:#f92672">repository</span>: <span style="color:#e6db74">&#34;https://github.com/systemd-rhel/tests&#34;</span>
+        <span style="color:#f92672">prepare</span>:
+            <span style="color:#f92672">how</span>: <span style="color:#ae81ff">ansible</span>
+            <span style="color:#f92672">playbooks</span>: [<span style="color:#ae81ff">setup/packages.yml]</span>
+        <span style="color:#f92672">execute</span>:
+            <span style="color:#f92672">how</span>: <span style="color:#ae81ff">beakerlib</span>
+</code></pre></div><p>This plan enables a set of Tier 1 tests from the shared <a href="https://github.com/systemd-rhel/tests">systemd tests</a> repository.
+The meaning of individual attributes is as follows:</p>
+<ul>
+<li>Summary — an optional but useful attribute describing high-level purpose of the plan.</li>
+<li>Discover — instructs to fetch tests from given repository and select relevant ones by provided <code>filter</code>.</li>
+<li>Prepare — specifies which ansible playbook should be applied to prepare environment for testing.</li>
+<li>Execute — defines that the beakerlib framework should be used for running the tests.</li>
+</ul>
+<h3 id="fmf-tests">
+  FMF Tests
+  <a class="anchor" href="#fmf-tests">#</a>
+</h3>
+<p>Here&rsquo;s a real-life example of tests enabled for the <a href="https://fmf.readthedocs.io/">fmf</a> package.
+There are several plans defined under the <a href="https://github.com/psss/fmf/tree/master/plans">plans</a> directory.
+The <code>smoke</code> plan enables a super basic test checking availability of the <code>fmf</code> command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#f92672">summary</span>:
+    	<span style="color:#ae81ff">Just a basic smoke test</span>
+    <span style="color:#f92672">execute</span>:
+    	<span style="color:#f92672">how</span>: <span style="color:#ae81ff">shell</span>
+    	<span style="color:#f92672">script</span>: <span style="color:#ae81ff">fmf --help</span>
+</code></pre></div><p>Plan <code>features</code> is used to execute all available beakerlib tests from the <code>fmf</code> repository:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#f92672">summary</span>:
+    	<span style="color:#ae81ff">Essential command line features</span>
+    <span style="color:#f92672">discover</span>:
+    	<span style="color:#f92672">how</span>: <span style="color:#ae81ff">fmf</span>
+    	<span style="color:#f92672">repository</span>: <span style="color:#ae81ff">https://github.com/psss/fmf</span>
+    <span style="color:#f92672">execute</span>:
+    	<span style="color:#f92672">how</span>: <span style="color:#ae81ff">beakerlib</span>
+</code></pre></div><p>It is also possible to select only a subset of available tests.
+This is demonstrated by the <code>docs</code> plan.
+Use an fmf <code>filter</code> like <code>tier:1</code> to select tests for execution.
+You can also reference a specific feature area instead:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#f92672">summary</span>:
+    	<span style="color:#ae81ff">Ensure that documentation is present</span>
+    <span style="color:#f92672">discover</span>:
+    	<span style="color:#f92672">how</span>: <span style="color:#ae81ff">fmf</span>
+    	<span style="color:#f92672">repository</span>: <span style="color:#ae81ff">https://github.com/psss/fmf</span>
+    	<span style="color:#f92672">filter</span>: <span style="color:#ae81ff">coverage:/stories/docs.*</span>
+    <span style="color:#f92672">execute</span>:
+    	<span style="color:#f92672">how</span>: <span style="color:#ae81ff">beakerlib</span>
+</code></pre></div><p>See the <a href="https://github.com/psss/fmf/tree/master/stories">stories</a> directory to get some inspiration for organizing stories and requirements.</p>
+<h3 id="running-linters">
+  Running linters
+  <a class="anchor" href="#running-linters">#</a>
+</h3>
+<p>Running linters on your code is easy to setup using Testing Farm and tmt.
+Linters are tools which you can install from the distribution and they usually
+just require a path to files which they check. Here is a plan which you can use
+to run <code>rpmlint</code> on your spec file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">summary</span>:
+  <span style="color:#ae81ff">Execute rpmlint on the spec file</span>
+<span style="color:#f92672">prepare</span>:
+  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">packages</span>
+    <span style="color:#f92672">how</span>: <span style="color:#ae81ff">install</span>
+    <span style="color:#f92672">package</span>:
+    - <span style="color:#ae81ff">rpmlint</span>
+<span style="color:#f92672">execute</span>:
+  <span style="color:#f92672">script</span>:
+  - <span style="color:#ae81ff">rpmlint fedora/python-ogr.spec</span>
+</code></pre></div><h2 id="testing-farm-api">
+  Testing Farm API
+  <a class="anchor" href="#testing-farm-api">#</a>
+</h2>
+<p>Packit Service communicates with Testing Farm via its <a href="https://testing-farm.gitlab.io/api">API</a>.</p>
+<h2 id="issues--rfes">
+  Issues &amp; RFEs
+  <a class="anchor" href="#issues--rfes">#</a>
+</h2>
+<p>If you have found an issue or have an RFE, you can file an <a href="https://gitlab.com/testing-farm/general/-/issues">issue in nucleus project</a>.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#enable-testing">Enable Testing</a></li>
+    <li><a href="#restart-testing">Restart Testing</a></li>
+    <li><a href="#creating-tests">Creating Tests</a></li>
+    <li><a href="#more-examples">More Examples</a>
+      <ul>
+        <li><a href="#using-filters">Using Filters</a></li>
+        <li><a href="#prepare-step">Prepare Step</a></li>
+        <li><a href="#apache-test">Apache Test</a></li>
+        <li><a href="#systemd-tests">Systemd Tests</a></li>
+        <li><a href="#fmf-tests">FMF Tests</a></li>
+        <li><a href="#running-linters">Running linters</a></li>
+      </ul>
+    </li>
+    <li><a href="#testing-farm-api">Testing Farm API</a></li>
+    <li><a href="#issues--rfes">Issues &amp; RFEs</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

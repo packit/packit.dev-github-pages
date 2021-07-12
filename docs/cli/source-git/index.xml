@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>source-git on Packit</title>
+    <link>https://packit.dev/docs/cli/source-git/</link>
+    <description>Recent content in source-git on Packit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://packit.dev/docs/cli/source-git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>init</title>
+      <link>https://packit.dev/docs/cli/source-git/init/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/cli/source-git/init/</guid>
+      <description>source-git init #  Initialize a repository to serve as a source-git repo.
+The biggest advantage of this command is the functionality to create source-git repos. Here&amp;rsquo;s a quick rundown what packit does:
+  Pull upstream git history (the default is not pull and use the checked out branch).
+  Fetches specfile and additional sources from Fedora or CentOS dist-git.
+  Apply downstream patches as commits.
+  Add packit config file.</description>
+    </item>
+    
+    <item>
+      <title>update-dist-git</title>
+      <link>https://packit.dev/docs/cli/source-git/update-dist-git/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://packit.dev/docs/cli/source-git/update-dist-git/</guid>
+      <description>source-git update-dist-git #  Transform the content from a source-git repository in a dist-git format, and update the corresponding dist-git repository.
+Help #  $ packit source-git update-dist-git --help Usage: packit-dev source-git update-dist-git [OPTIONS] SOURCE_GIT DIST_GIT Update a dist-git repository using content from a source-git repository Update a dist-git repository with patches created from the commits between &amp;lt;upstream_ref&amp;gt; and the current HEAD of the source-git repo. This command, by default, performs only local operations and uses the content of the source-git and dist-git repository as it is: does not checkout branches or fetches remotes.</description>
+    </item>
+    
+  </channel>
+</rss>
